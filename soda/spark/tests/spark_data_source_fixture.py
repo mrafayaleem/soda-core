@@ -20,16 +20,23 @@ class SparkDataSourceFixture(DataSourceFixture):
                 "method": os.getenv("SPARK_METHOD"),
                 "http_path": os.getenv("DATABRICKS_HTTP_PATH"),
                 "token": os.getenv("DATABRICKS_TOKEN"),
-                "database": os.getenv("DATABRICKS_DATABASE")
-
+                "catalog": os.getenv("DATABRICKS_CATALOG")
             }
         }
 
     def _create_schema_if_not_exists_sql(self) -> str:
-        return f"CREATE SCHEMA IF NOT EXISTS {self.schema_name}"
+        if os.getenv("SPARK_METHOD") == "databricks":
+            logger.warning("Creating schema is not supported in databricks")
+        else:
+            logger.warning("TODO: Add create schema for odbc/hive local spark testing")
+        return "SELECT 1"
 
     def _use_schema_sql(self) -> str | None:
         return None
 
     def _drop_schema_if_exists_sql(self):
-        return f"DROP SCHEMA IF EXISTS {self.schema_name} CASCADE"
+        if os.getenv("SPARK_METHOD") == "databricks":
+            logger.warning("Dropping schema is not supported in databricks")
+        else:
+            logger.warning("TODO: Add drop schema for odbc/hive local spark testing")
+        return "SELECT 1"
