@@ -1,4 +1,4 @@
-# Generated from /Users/vijay/work/soda/code/soda-core/soda/core/soda/sodacl/antlr/SodaCLAntlr.g4 by ANTLR 4.9.3
+# Generated from SodaCLAntlr.g4 by ANTLR 4.11.1
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .SodaCLAntlrParser import SodaCLAntlrParser
@@ -186,6 +186,11 @@ class SodaCLAntlrVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by SodaCLAntlrParser#checks_for_each_column_header.
     def visitChecks_for_each_column_header(self, ctx:SodaCLAntlrParser.Checks_for_each_column_headerContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SodaCLAntlrParser#variable.
+    def visitVariable(self, ctx:SodaCLAntlrParser.VariableContext):
         return self.visitChildren(ctx)
 
 

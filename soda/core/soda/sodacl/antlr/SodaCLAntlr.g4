@@ -105,6 +105,7 @@ comparator
 threshold_value
  : signed_number (S? PERCENT)?
  | freshness_threshold_value
+ | variable
  ;
 
 freshness_threshold_value
@@ -157,6 +158,10 @@ checks_for_each_dataset_header
 
 checks_for_each_column_header
  : 'for each column' S identifier EOF
+ ;
+
+variable
+ : '$' NAME '$'
  ;
 
 signed_number
@@ -218,10 +223,13 @@ EQUAL: '=';
 LT: '<';
 GT: '>';
 
+
 IDENTIFIER_DOUBLE_QUOTE: '"' ( ~'"' | '\\"')+ '"';
 IDENTIFIER_BACKTICK: '`' ( ~'`' | '\\`')+ '`';
 IDENTIFIER_UNQUOTED: [a-zA-Z_] ~(' ' | '<' | '=' | '>' | '(' | ')' | '[' | ']' | ',')*;
+NAME : [a-zA-Z0-9_]+;
 
 DIGITS: [0-9]+;
+
 
 S: ' ';
