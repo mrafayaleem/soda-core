@@ -161,7 +161,7 @@ checks_for_each_column_header
  ;
 
 variable
- : '$' NAME '$'
+ : '${' NAME '}'
  ;
 
 signed_number

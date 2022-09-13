@@ -1,4 +1,4 @@
-# Generated from SodaCLAntlr.g4 by ANTLR 4.11.1
+# Generated from /Users/vijay/work/soda/code/soda-core/soda/core/soda/sodacl/antlr/SodaCLAntlr.g4 by ANTLR 4.11.1
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
@@ -134,7 +134,7 @@ def serializedATN():
         350,5,18,0,0,350,351,5,57,0,0,351,352,3,80,40,0,352,353,5,0,0,1,
         353,355,1,0,0,0,354,344,1,0,0,0,354,349,1,0,0,0,355,69,1,0,0,0,356,
         357,5,19,0,0,357,358,5,57,0,0,358,359,3,80,40,0,359,360,5,0,0,1,
-        360,71,1,0,0,0,361,362,5,20,0,0,362,363,5,55,0,0,363,364,5,20,0,
+        360,71,1,0,0,0,361,362,5,20,0,0,362,363,5,55,0,0,363,364,5,38,0,
         0,364,73,1,0,0,0,365,367,7,7,0,0,366,365,1,0,0,0,366,367,1,0,0,0,
         367,368,1,0,0,0,368,369,3,76,38,0,369,75,1,0,0,0,370,382,3,78,39,
         0,371,372,5,56,0,0,372,374,5,21,0,0,373,375,5,56,0,0,374,373,1,0,
@@ -162,7 +162,7 @@ class SodaCLAntlrParser ( Parser ):
                      "'percent'", "'anomaly score for '", "'d'", "'h'", 
                      "'m'", "'values in'", "'must exist in'", "'checks for'", 
                      "'filter'", "'configurations for'", "'for each dataset'", 
-                     "'for each table'", "'for each column'", "'$'", "'.'", 
+                     "'for each table'", "'for each column'", "'${'", "'.'", 
                      "'for'", "'and'", "'between'", "'not'", "'in'", "'warn'", 
                      "'fail'", "'pass'", "'change'", "'last'", "'avg'", 
                      "'min'", "'max'", "'['", "']'", "'{'", "'}'", "'('", 
@@ -3001,6 +3001,9 @@ class SodaCLAntlrParser ( Parser ):
         def NAME(self):
             return self.getToken(SodaCLAntlrParser.NAME, 0)
 
+        def CURLY_RIGHT(self):
+            return self.getToken(SodaCLAntlrParser.CURLY_RIGHT, 0)
+
         def getRuleIndex(self):
             return SodaCLAntlrParser.RULE_variable
 
@@ -3032,7 +3035,7 @@ class SodaCLAntlrParser ( Parser ):
             self.state = 362
             self.match(SodaCLAntlrParser.NAME)
             self.state = 363
-            self.match(SodaCLAntlrParser.T__19)
+            self.match(SodaCLAntlrParser.CURLY_RIGHT)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)

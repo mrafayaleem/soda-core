@@ -13,7 +13,7 @@ def test_row_count_with_var_threshold(data_source_fixture: DataSourceFixture):
     scan.add_sodacl_yaml_str(
         f"""
       checks for {table_name}:
-        - row_count = $count$
+        - row_count = ${count}
 
     """
     )
